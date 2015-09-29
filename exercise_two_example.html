@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Excercise 1</title>
+    <title>Excercise 2</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
 
@@ -51,6 +51,10 @@
              *
              */
             console.log('code for step 1 following!');
+            var svg = d3.select('#exercise-1-svg-container')
+                .append('svg')
+                .attr('width','100%')
+                .attr('height',500);
 
 
 
@@ -63,6 +67,11 @@
               *
               */
             console.log('code for step 2 following!');
+            svg.append('rect')
+                .attr('width',20)
+                .attr('height',20)
+                .attr('x',20)
+                .attr('y',20);
 
              /**
               * Step 3: Add some color!
@@ -74,6 +83,12 @@
               *
               */
             console.log('code for step 2 following!');
+            svg.append('rect')
+               .attr('width',20)
+               .attr('height',20)
+               .attr('x',100)
+               .attr('y',20)
+               .attr('fill','green');
 
 
              /**
@@ -85,6 +100,12 @@
               *
               */
             console.log('code for step 3 following!');
+            for(var i = 0; i < 10; i++) {
+                svg.append('rect').attr('width',20)
+                    .attr('height',i*4)
+                    .attr('x',i*25)
+                    .attr('y',100);
+            }
 
 
              /**
@@ -96,6 +117,15 @@
               * }
               */
             console.log('code for step 4 following!');
+            for(var i = 0; i < 10; i++) {
+                for(var j = 0; j < 10; j++) {
+                    svg.append('rect').attr('width',j)
+                        .attr('height',i)
+                        .attr('x',i*20)
+                        .attr('y',100+j*20)
+                        .attr('fill','rgba(0,0,0,0.5)');
+                }
+            }
 
 
         });
@@ -107,109 +137,28 @@
         <div class='excercise-container mdl-shadow--2dp'>
             <div class='mdl-grid'>
                 <div class='mdl-cell mdl-cell--6-col'>
-                    <h3>Step 1: create an svg element</h3>
+                    <h3>exercise introduction</h3>
+                    <p>In this exercise page the svg element is created already.
+                        The goal is to learn to use the various methods in the
+                        d3js library for connecting shapes to data.
+                    </p>
+                    <h3>Step 1: using .select and .data</h3>
                     <p>
-                        The first step for creating visualisations with d3.js is often to
-                        create an svg element in your web page.
-                        That will the first step of this excercise.
-                        In the script add the following piece of code:
+
                     </p>
 
 <!-- NOT INDENTED BECAUSE OF CODE TABS -->
 <div id="codeSnippet">
 <pre><code>
-var svg = d3.select('#exercise-1-svg-container')
-    .append('svg')
-    .attr('width',500)
-    .attr('height',500);
+
 </code>
 </pre>
 </div>
 <hr>
-                    <h3>Step 2: Add a shape</h3>
-                    <p>
-                        Now that you have the SVG element as a variable in javascript you can add shapes to it.
-                        Try adding a rectangle, circle or other shapes. Play around with it,
-                        combining multiple shapes to make some sort of picture.
-                    </p>
-
-<!-- NOT INDENTED BECAUSE OF CODE TABS -->
-<div id="codeSnippet">
-<pre><code>
-d3.append('rect')
-    .attr('width',20)
-    .attr('height',20)
-    .attr('x',20)
-    .attr('y',20);
-</code>
-</pre>
-</div>
-
-                    <h3>Step 3: Add some fancy styling</h3>
-                    <p>
-                        Attributes are not just for positioning,
-                        through attributes you can change also change fill color and borders.
-                    </p>
-
-<!-- NOT INDENTED BECAUSE OF CODE TABS -->
-<div id="codeSnippet">
-<pre><code>
-svg.append('rect')
-   .attr('width',20)
-   .attr('height',20)
-   .attr('x',100)
-   .attr('y',20)
-   .attr('fill','green');
-</code>
-</pre>
-</div>
-<hr>
-                    <h3>Step 4: use a loop</h3>
-                    <p>
-                        Now that you've gotten some practice with adding individual shapes,
-                        it is time to make it more interesting. Using a loop you can
-                        easily repeat the same piece of code multiple times.
-                    </p>
-
-<!-- NOT INDENTED BECAUSE OF CODE TABS -->
-<div id="codeSnippet">
-<pre><code>
-for(var i = 0; i < 10; i++) {
-    svg.append('rect').attr('width',20)
-        .attr('height',i*4)
-        .attr('x',i*25)
-        .attr('y',100);
-}
-</code>
-</pre>
-</div>
-<hr>
-                    <h3>Step 5: use multiple loops!</h3>
-                    <p>
-                        It is time to make it even more interesting. Use multiple loops and be creative!
-                    </p>
-
-<!-- NOT INDENTED BECAUSE OF CODE TABS -->
-<div id="codeSnippet">
-<pre><code>
-for(var i = 0; i < 10; i++) {
-    for(var j = 0; j < 10; j++) {
-        svg.append('rect').attr('width',j*2)
-            .attr('height',i*4)
-            .attr('x',i*2)
-            .attr('y',100-j*10);
-    }
-}
-</code>
-</pre>
-</div>
-<hr>
-
-
                 </div>
                 <div class='mdl-cell mdl-cell--6-col'>
                     <div class='excercise-svg-container'>
-                        <div id='exercise-1-svg-container'>
+                        <div id='exercise-2-svg-container'>
                             <!-- In this div you will append the first svg -->
                         </div>
                     </div>

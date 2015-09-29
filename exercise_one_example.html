@@ -51,6 +51,10 @@
              *
              */
             console.log('code for step 1 following!');
+            var svg = d3.select('#exercise-1-svg-container')
+                .append('svg')
+                .attr('width','100%')
+                .attr('height',500);
 
 
 
@@ -63,6 +67,11 @@
               *
               */
             console.log('code for step 2 following!');
+            svg.append('rect')
+                .attr('width',20)
+                .attr('height',20)
+                .attr('x',20)
+                .attr('y',20);
 
              /**
               * Step 3: Add some color!
@@ -74,6 +83,12 @@
               *
               */
             console.log('code for step 2 following!');
+            svg.append('rect')
+               .attr('width',20)
+               .attr('height',20)
+               .attr('x',100)
+               .attr('y',20)
+               .attr('fill','green');
 
 
              /**
@@ -85,6 +100,12 @@
               *
               */
             console.log('code for step 3 following!');
+            for(var i = 0; i < 10; i++) {
+                svg.append('rect').attr('width',20)
+                    .attr('height',i*4)
+                    .attr('x',i*25)
+                    .attr('y',100);
+            }
 
 
              /**
@@ -96,6 +117,15 @@
               * }
               */
             console.log('code for step 4 following!');
+            for(var i = 0; i < 10; i++) {
+                for(var j = 0; j < 10; j++) {
+                    svg.append('rect').attr('width',j)
+                        .attr('height',i)
+                        .attr('x',i*20)
+                        .attr('y',100+j*20)
+                        .attr('fill','rgba(0,0,0,0.5)');
+                }
+            }
 
 
         });
