@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head>
+    <title>Excercise 1</title>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+	<script src="/resources/d3jsdemo/d3.v3.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link href='/resources/material.min.css' rel='stylesheet' type='text/css'>
+    <style>
+    .excercise-svg-container {
+        height:200px;
+        margin:10px;
+        border:1px dashed grey;
+        background:white;
+    }
+    .excercise-container {
+        margin:10px;
+        background:rgba(0,100,100,0.5);
+    }
+
+    .grid-container {
+        width:100%;
+        max-width:1000px;
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+    }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            console.log('document ready!'); // logging just to make sure the script is running
+
+            /**
+             * Step 1: create an svg element
+             * var svg = d3.selectById('excercise-1-svg-container');
+             *
+             * ADD CODE BELOW
+             */
+
+
+             /**
+              * Step 2: Create a shape within the svg element
+              * svg.append('rect').attr('w',100)
+              * 	.attr('h',100)
+              * 	.attr('x',20)
+              * 	.attr('y',30);
+              *
+              *
+              * ADD CODE BELOW
+              */
+
+
+
+             /**
+              * Step 3: Use a loop to create interesting effects
+              *
+              * for (var i = 0; i < 10; i++) {
+              * 	svg.append('rect').attr('h', function() {
+              * 		return i*5;
+              * 	});
+              * }
+              */
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class='grid-container'>
+        <h1>Excercise 1: Shapes</h1>
+        <div class='excercise-container mdl-shadow--2dp'>
+            <div class='mdl-grid'>
+                <div class='mdl-cell mdl-cell--6-col'>
+                    <h3>Step 1: create an svg element</h3>
+                    <p>
+                        The first step for creating visualisations with d3.js is often to
+                        create an svg element in your web page.
+                        That will the first step of this excercise.
+                        In the script add the following piece of code:
+                        <div id="codeSnippet">
+                        <pre><code><script type="text/javascript">
+                        $(document).ready(function() {
+                        $('.slideshow').cycle({
+                        fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+                        });
+                        });
+                        </script>
+                        </code>
+                        </pre>
+                        </div>
+                    </p>
+                    <h3>Step 2: Add a shape</h3>
+                    <p>
+                        The first step for creating visualisations with d3.js is often to
+                        create an svg element in your web page.
+                        That will the first step of this excercise.
+                        In the script add this piece of code
+                    </p>
+
+
+                </div>
+                <div class='mdl-cell mdl-cell--6-col'>
+                    <div class='excercise-svg-container'>
+                        <div id='excercise-1-svg-container'>
+                            <!-- In this div you will append the first svg -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
