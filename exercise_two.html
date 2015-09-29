@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<head>
+    <title>Excercise 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.blue-deep_orange.min.css" />
+    <style>
+    .excercise-svg-container {
+        height:500px;
+        margin:10px;
+        border:1px dashed grey;
+        background:white;
+        position:relative;
+    }
+    .excercise-container {
+        margin:10px;
+        background:rgba(0,0,100,0.1);
+    }
+
+    .grid-container {
+        width:100%;
+        max-width:1000px;
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+    }
+
+    pre {
+        padding:5px;
+        background:white;
+        border:1px solid black;
+    }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            console.log('document ready!'); // logging just to make sure the script is running
+            var svg = d3.select('#exercise-2-svg-container')
+                .append('svg')
+                .attr('width','100%')
+                .attr('height',500);
+
+            var theData = [
+                10,
+                14,
+                20,
+                21,
+                6,
+                43,
+                20,
+                10
+            ]
+
+            /**
+             * Step 1: add data
+             * var rects = svg.selectAll('rect')
+             * 		.data(theData);
+             *
+             * rects.enter()
+             * 		.append('rect')
+             * 		.attr('width',10)
+             * 		.attr('height',function(d) {
+             * 			return d;
+             * 		})
+             * 		.attr('x',function(d, i) {
+             * 			return 20+i*10;
+             * 		})
+             * 		.attr('y', function(d) {
+             * 			return 100-d;
+             * 		});
+             */
+            console.log('code for step 1 following!');
+
+
+
+            /**
+             * Step 2: Write a data update function
+             * The function receives your updated data structure.
+             * You then select all the rectangles again in your svg object
+             * using the .selectAll('rect') function.
+             *
+             * I don't wanna write all of this, look at the example file ;)
+             *
+             */
+            console.log('code for step 2 following!');
+
+
+
+            /**
+             * Step 3: Connect it to a button to interactively add data;
+             * Use jquery to listen to the click event.
+             * Get the value from the input box.
+             * Push the value into the data array;
+             * Call the update function;
+             */
+            console.log('code for step 3 following!');
+
+            /**
+             * Step 4: Now connect a button to interactively remove the first value;
+             * quite similar to the previous step of course;
+             */
+            console.log('code for step 4 following!');
+
+
+
+            /**
+             * Step 5: Use your own data;
+             *
+             */
+        });
+    </script>
+</head>
+<body>
+    <div class='grid-container'>
+        <h1>Excercise 2: Data</h1>
+        <div class='excercise-container mdl-shadow--2dp'>
+            <div class='mdl-grid'>
+                <div class='mdl-cell mdl-cell--6-col'>
+                    <h3>exercise introduction</h3>
+                    <p>In this exercise page the svg element is created already.
+                        The goal is to learn to use the various methods in the
+                        d3js library for connecting shapes to data.
+                    </p>
+                    <h3>Step 1: using .selectAll and .data</h3>
+                    <p>
+                        Instead of looping through data yourself and appending stuff
+                        the d3.js library has multiple functions for this stuff.
+                        This eventually makes it much easier and faster.
+
+                    </p>
+
+<!-- NOT INDENTED BECAUSE OF CODE TABS -->
+<div id="codeSnippet">
+<pre><code>
+console.log(theData);
+var rects = svg.selectAll('rect')
+    .data(theData);
+rects.enter()
+    .append('rect')
+    .attr('width',10)
+    .attr('height',function(d) {
+        return d;
+    })
+    .attr('x',function(d, i){
+        return 20+i*10;
+    })
+    .attr('y',function(d) {
+        return 100-d;
+    });
+</code>
+</pre>
+</div>
+<hr>
+
+                    <h3>Step 2: Write a data update function</h3>
+                    <p>
+                        We are gonna write an update function for when the data changes.
+                        In the next steps we will connect that function to the buttons below the visualisation.
+                    </p>
+
+<!-- NOT INDENTED BECAUSE OF CODE TABS -->
+<div id="codeSnippet">
+<pre><code>
+function update(data) {
+    console.log('update function called');
+    console.log('new data');
+    console.log(data);
+    // DATA JOING
+    // Join (combine) the new data with old elements
+    var rects = svg.selectAll('rect')
+        .data(data);
+
+    // UPDATE
+    // The rects object still contains just the old rectangles
+    // So you can do something with the old values.
+    rects.attr('fill','rgba(0,0,0,0.5)');
+
+    // ENTER
+    // With the enter function you create new elements in your svg object
+    rects.enter().append('rect')
+        .attr('fill','red')
+        .attr('width',10)
+        .attr('height',function(d) {
+            return d;
+        })
+        .attr('x',function(d, i){
+            return 20+i*10;
+        })
+        .attr('y',function(d) {
+            return 400-d;
+        });
+
+    // ENTER + UPDATE
+    // Now the rects object contains both the old and new elements.
+    rects.attr('stroke-width',1)
+        .attr('stroke','blue');
+
+    // EXIT
+    // Remove the elements that are deleted from the data object;
+    rects.exit().remove();
+}
+// Add some data to the data array;
+theData = theData.concat([10,20,10,20,10,20]);
+update(theData);
+</code>
+</pre>
+</div>
+<hr>
+
+                    <h3>Step 3: Add button</h3>
+                    <p>
+                        With a little bit of jquery code we can react to the button click.
+                        After that the code pulls the data from the input box, adds the value to the array and calls
+                        the update function we wrote in the previous step.
+                    </p>
+
+<!-- NOT INDENTED BECAUSE OF CODE TABS -->
+<div id="codeSnippet">
+<pre><code>
+$('#add-value').click(function() {
+    console.log('add value clicked');
+    var value = $('#new-value').val();
+    console.log('value in #new-value: '+value);
+    theData.push(value);
+    update(theData);
+});
+</code>
+</pre>
+</div>
+<hr>
+
+                    <h3>Step 4: Remove first button</h3>
+                    <p>
+                        Another short piece of code to remove the first element of the array and call the update function.
+                    </p>
+
+<!-- NOT INDENTED BECAUSE OF CODE TABS -->
+<div id="codeSnippet">
+<pre><code>
+$('#remove-first').click(function() {
+    console.log('remove first clicked');
+    theData.shift();
+    update(theData);
+});
+</code>
+</pre>
+</div>
+<hr>
+
+
+                </div>
+                <div class='mdl-cell mdl-cell--6-col'>
+                    <div class='excercise-svg-container'>
+                        <div id='exercise-2-svg-container'>
+                            <!-- In this div you will append the first svg -->
+                        </div>
+                    </div>
+                    <button id='remove-first' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                        Remove first
+                    </button>
+                    <hr>
+                    <div>
+                        <input id='new-value' type='value'>
+                        <br><br>
+                        <button id='add-value' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                            Add value
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
